@@ -796,6 +796,54 @@
     const posts = [
       {
         date: 'Jul 30, 2026',
+        category: 'AI',
+        catClass: 'cat-ai',
+        title: 'The Evolution of AI: From GPT-3 to Autonomous Agents and Beyond',
+        excerpt: 'Six years of AI progress distilled — from the GPT-3 moment that kicked off the scaling race, through multimodal models and reasoning breakthroughs, to today\'s autonomous agents. Where research suggests we\'re headed next.',
+        <p>In June 2020, OpenAI released GPT-3: a model that could generate coherent paragraphs of text given a few examples. It felt like magic. Looking back from 2026, that moment was the starting gun for a transformation that has reshaped how software is built, how research is conducted, and how knowledge work gets done. Here's the arc of that change and what comes next.</p>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">2020–2021: The Scaling Awakening</h3>
+        <p>GPT-3 proved something the AI community had suspected but never confirmed: <strong>model performance scales predictably with compute, data, and parameters</strong>. The scaling laws paper from Kaplan et al. (2020) showed a clean power-law relationship — double the compute, get a predictable lift. This gave the industry a roadmap: raise capital, buy GPUs, train bigger models.</p>
+        <p>Key milestones: GPT-3 (175B params, June 2020), DALL-E (January 2021), Codex (August 2021), and the first whisperings of what would become the transformer architecture wars. GitHub Copilot launched in preview — most developers dismissed it as a toy. 18 months later, it was writing 40% of new code in projects where it was enabled.</p>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">2022: The Public Breakout</h3>
+        <p>2022 was the year AI went mainstream. <strong>Stable Diffusion</strong> (August 2022) democratized image generation: suddenly anyone could create photorealistic images from text prompts. The open-source community rallied around it, producing fine-tuned models, LoRAs, and ControlNet within months.</p>
+        <p>Then <strong>ChatGPT</strong> launched in November 2022. 100 million users in two months. The fastest product adoption in history. For the first time, the general public experienced what a capable language model could do — not as a research demo, but as a free chat interface. The world split into "before ChatGPT" and "after."</p>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">2023: The Open-Source Revolution</h3>
+        <p>GPT-4 launched in March 2023 with multimodal vision capabilities — it could read images, interpret screenshots, and describe visual content. But the bigger story unfolded in the open-source ecosystem. <strong>Meta released Llama</strong> (February 2023), and the community exploded. Within weeks, researchers had fine-tuned it into Alpaca, Vicuna, and dozens of specialized variants. The leaked LLaMA weights triggered a wave of innovation that closed the gap between open and closed models faster than anyone predicted.</p>
+        <p>Key developments: GPT-4 (March), Claude (March), Anthropic's constitutional AI approach, the emergence of retrieval-augmented generation (RAG), and the first serious agent frameworks — AutoGPT, BabyAGI, and LangChain. None of those early agent frameworks worked reliably, but they established the ambition.</p>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">2024: Reasoning and Agents</h3>
+        <p>2024 introduced a new paradigm: <strong>reasoning models</strong>. OpenAI's o1 series (September 2024) used chain-of-thought at inference time, effectively "thinking" before answering. This improved performance on math, coding, and science benchmarks by 20–40 points. Google's Gemini followed with its own reasoning architecture. The key insight: throwing more compute at inference (test-time scaling) was as effective as training bigger models.</p>
+        <p>Context windows exploded — from 4K tokens in GPT-3 to 200K in GPT-4 Turbo, then 1M+ in Gemini 1.5 Pro and Claude 3. This changed what you could do with an AI. Instead of feeding a model a paragraph, you could give it entire codebases, legal documents, or research papers.</p>
+        <p>AI coding assistants crossed a threshold. GitHub Copilot, Cursor, and Claude Code moved from autocomplete to autonomous code generation. Developers reported 2-3x productivity gains on routine tasks. "Vibe coding" — describing what you want in natural language and letting the AI write it — entered the lexicon.</p>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">2025: Agency and Autonomy</h3>
+        <p>2025 was the year AI gained <strong>computer use</strong>. Claude could control a desktop cursor, clicking buttons and navigating interfaces. AI agents could browse the web, fill forms, execute code, and correct their own mistakes in a loop. The reliability of multi-step agentic tasks went from ~20% to ~70% over the course of the year — still not production-ready for critical paths, but viable for supervised automation.</p>
+        <p>The regulatory picture hardened. The EU AI Act took effect, requiring transparency and risk assessment for high-impact models. The US issued executive orders on AI safety testing. China's AI ecosystem, led by Moonshot AI's Kimi K3 and DeepSeek's models, emerged as a genuine competitor to Western labs — not on copycat technology, but on novel architectures with significant efficiency advantages.</p>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">2026: Current State</h3>
+        <p>We're now in an era defined by <strong>specialization and integration</strong>. Foundation models continue to improve, but the marginal gains from scaling alone are diminishing. The frontier has shifted to:</p>
+        <ul>
+          <li><strong>Efficient architectures</strong> — Kimi K3's hybrid attention reduces KV cache by 40% while matching larger models. DeepSeek's Mixture-of-Experts approaches achieve GPT-4-class performance at a fraction of the training compute.</li>
+          <li><strong>AI-driven science</strong> — Claude finding encryption vulnerabilities, AlphaFold-level protein prediction becoming routine, AI-formulated drug candidates entering clinical trials.</li>
+          <li><strong>Robotics co-design</strong> — Transformer-Transformer and similar work unify robot morphology and control design, moving purpose-built hardware from months of engineering to hours of computation.</li>
+          <li><strong>Autonomous agents</strong> — Tools like Hermes Agent can research, build, deploy, and manage projects across a 24-hour cycle with human supervision only at decision points.</li>
+          <li><strong>Open-source parity</strong> — The gap between the best open models and closed frontier models has narrowed to 3–6 months for most tasks, fundamentally changing the economics of AI adoption.</li>
+        </ul>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">Where We're Headed</h3>
+        <p>Research directions converge on several themes:</p>
+        <p><strong>Test-time compute scaling</strong> will continue driving improvements. Models that can "think" for seconds, minutes, or hours before answering will handle increasingly complex reasoning tasks. The crude scaling of 2020–2023 (bigger models) is giving way to smarter scaling (more inference compute + better architectures).</p>
+        <p><strong>Self-improving systems</strong> are the next frontier. AI agents that can evaluate their own outputs, identify weaknesses, and retrain or refine their approach without human intervention. Early versions exist in coding (self-debugging code) and research (AI-generated hypotheses tested by AI-run simulations).</p>
+        <p><strong>Multimodal as the default</strong> — text, images, audio, video, and structured data will be unified in single models. The split between "language models" and "vision models" and "speech models" will look as archaic as having separate devices for phone calls and photography.</p>
+        <p><strong>AI x Science</strong> may be the most consequential. AI systems that can design experiments, analyze results, and iterate on hypotheses at machine speed could compress decades of scientific progress into years. Drug discovery, materials science, and climate modeling are the most cited candidates, but the pattern applies broadly.</p>
+        <p><strong>The AGI question</strong> remains open. Predictions range from 2027 to never. What's clear is that we've already crossed thresholds that seemed distant in 2020: models that can write production code, conduct research-level analysis, and operate computer interfaces autonomously. Whether that trajectory asymptotes at "very capable narrow AI" or accelerates through a general intelligence threshold is the defining uncertainty of the decade.</p>
+        <p style="font-size:13px;color:var(--text-dim);margin-top:20px;padding-top:12px;border-top:1px solid var(--border);">🔗 <em>Some links in this post are affiliate links. If you sign up through them, I may earn a small commission at no extra cost to you.</em></p>`
+      },
+      {
+        date: 'Jul 30, 2026',
         category: 'Dev',
         catClass: 'cat-dev',
         title: 'Hermes Agent — The Complete Setup Guide',
@@ -910,7 +958,7 @@
         title: 'CyberSyncIT Launch Video — Case Study',
         excerpt: 'I built a 60-second product launch video for CyberSyncIT using the HyperFrames HTML-to-video framework. A deep dive into the compositing pipeline, scene planning, and design decisions behind the final render.',
         content: `<p>Earlier today I built a <strong>60-second product launch video</strong> for <strong>CyberSyncIT</strong> (cyber-sync-it.vercel.app) — an enterprise SaaS studio offering integrated IT service management, change management, and operations monitoring for mid-market businesses. The video was rendered using <a href="https://hyperframes.heygen.com" style="color:var(--primary-light);" target="_blank">HyperFrames</a>, an open-source HTML-to-video framework by HeyGen that converts CSS/JS animations into deterministic MP4 output at 30fps.</p>
-        <p><strong>Why video for a B2B product?</strong> Enterprise SaaS has a notoriously long sales cycle — prospects need to understand not just what the product does, but how it fits into their existing workflow. A well-crafted 60-second video serves as both a top-of-funnel introduction and an internal champion's tool for sharing with stakeholders. CyberSyncIT's market positioning needed to convey enterprise credibility (dashboards, SLA tracking, audit trails) without feeling like yet another boring IT tool.</p>
+        <p><strong>Why video for a B2B product?</strong> Enterprise SaaS has a notoriously long sales cycle — prospects need to understand not just what the product does, but how it fits into their existing workflow. A well-crafted 60-second video is both a top-of-funnel introduction and an internal champion's tool for sharing with stakeholders. CyberSyncIT's market positioning needed to convey enterprise credibility (dashboards, SLA tracking, audit trails) without feeling like yet another boring IT tool.</p>
         <p><strong>The creative approach:</strong> We landed on a dark cyber aesthetic with green/cyan accent colors — evoking security interfaces, not corporate slides. The palette mirrors the trust-and-control narrative essential for ITSM procurement decisions.</p>
         <p><strong>Scene breakdown:</strong></p>
         <ul>
@@ -972,7 +1020,7 @@
           <li><strong>Sim-to-real transfer</strong> was tested on three morphology variants 3D-printed and deployed on real hardware — the co-designed variants maintained their performance advantage in physical testing</li>
           <li>The approach generalizes across <strong>multiple robot types</strong> — quadrupeds, hexapods, and soft robotic manipulators — without architecture changes</li>
         </ul>
-        <p><strong>Why this is a breakthrough:</strong> This is closer to how evolution works in nature. Organisms don't evolve a body plan and then evolve motor skills separately — the two are coupled in a single optimization process. By unifying the design and control spaces, Transformer-Transformer opens the door to robots that are purpose-built for specific tasks rather than general-purpose platforms adapted (poorly) to specific use cases. The practical implication: warehouse robots, delivery drones, and surgical assistants could be computationally designed for their exact operating environment rather than adapted from generic platforms.</p>
+        <p><strong>Why this is a breakthrough:</strong> This is closer to how evolution works in nature. Organisms don't evolve a body plan and then evolve motor skills separately — the two are coupled in a single optimization process. By unifying the design and control spaces, Transformer-Transformer opens the door to robots that are purpose-built for specific tasks over general-purpose platforms poorly adapted to specific tasks. The practical implication: warehouse robots, delivery drones, and surgical assistants could be computationally designed for their exact operating environment rather than adapted from generic platforms.</p>
         <p style="font-size:13px;color:var(--text-dim);margin-top:20px;padding-top:12px;border-top:1px solid var(--border);">🔗 <em>Some links in this post are affiliate links. If you sign up through them, I may earn a small commission at no extra cost to you.</em></p>`
       },
       {
@@ -989,7 +1037,7 @@
           <li><strong>Training stability protocols.</strong> The paper documents several innovations in training stability, including adaptive gradient clipping thresholds that respond to loss curvature, and a novel initialization scheme for the attention routing weights that prevents mode collapse in the early training phase. These may seem like engineering details, but training instability is the single biggest blocker to scaling — models frequently diverge at 70-80% of target training steps. K3's documented improvements here are practically significant</li>
           <li><strong>Moonshot AI's moat.</strong> Perhaps most interestingly, K3 was trained on a fraction of the compute budget of comparable Western models. The paper is careful not to disclose exact FLOP counts, but independent analysis suggests a 3-5x efficiency advantage in training compute. If confirmed, this has geopolitical implications for the AI race</li>
         </ul>
-        <p>Raschka's analysis is characteristically thorough — he goes beyond the architecture to discuss what it means for the broader landscape. His bottom line: the Chinese AI ecosystem is producing genuinely innovative research, not just catching up. K3 isn't an imitation of Western architectures; it's a genuinely novel approach with advantages in specific areas (particularly long-context efficiency) that Western labs should study closely. The model is now available via the <a href="https://telnyx.com/release-notes/kimi-k3-telnyx-inference" style="color:var(--primary-light);" target="_blank">Telnyx Inference API</a> for testing.</p>
+        <p>Raschka's analysis is characteristically thorough — he goes beyond the architecture to discuss what it means for the broader landscape. His bottom line: the Chinese AI ecosystem is producing genuinely innovative research, far beyond catching up. K3 isn't an imitation of Western architectures; it's a genuinely novel approach with advantages in specific areas (particularly long-context efficiency) that Western labs should study closely. The model is now available via the <a href="https://telnyx.com/release-notes/kimi-k3-telnyx-inference" style="color:var(--primary-light);" target="_blank">Telnyx Inference API</a> for testing.</p>
         <p style="font-size:13px;color:var(--text-dim);margin-top:20px;padding-top:12px;border-top:1px solid var(--border);">🔗 <em>Some links in this post are affiliate links. If you sign up through them, I may earn a small commission at no extra cost to you.</em></p>`
       },
       {
@@ -1009,7 +1057,7 @@
           <li><strong>Tier strategically.</strong> Basic (free with watermark) → Pro (paid, clean) → Enterprise (commercial license). The free tier is the marketing funnel</li>
         </ul>
         <p><strong>InvoiceForge specifically:</strong> Built as a single HTML file with a form panel on the left and live preview on the right. Features: multi-currency (12 currencies), configurable tax rates, percentage discounts, logo upload, dark mode, notes/terms fields, and PDF export via jsPDF. The tech decision to avoid a backend means zero hosting costs — buyers download the file and run it in their browser. Updated through Gumroad's file-replacement system so existing buyers always get the latest version.</p>
-        <p><strong>What's next:</strong> More products are in the pipeline — an expense tracker, a proposal generator, and a simple CRM for freelancers. The strategy is to build a catalog of complementary tools under the digital-product-lab brand, each solving one specific pain point well, rather than a single monolithic platform. Products coming soon will be announced here first.</p>
+        <p><strong>What's next:</strong> More products are in the pipeline — an expense tracker, a proposal generator, and a simple CRM for freelancers. The strategy is to build a catalog of complementary tools under the digital-product-lab brand, each solving one specific pain point well, not a single monolithic platform. Products coming soon will be announced here first.</p>
         <p style="font-size:13px;color:var(--text-dim);margin-top:20px;padding-top:12px;border-top:1px solid var(--border);">🔗 <em>Some links in this post are affiliate links. If you sign up through them, I may earn a small commission at no extra cost to you.</em></p>`
       },
       {
