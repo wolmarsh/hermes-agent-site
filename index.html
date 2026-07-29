@@ -636,6 +636,148 @@
     /* ===== BLOG CARD FOOTER WITH READING TIME ===== */
     .blog-card-footer { display: flex; align-items: center; justify-content: space-between; }
 
+  
+    /* ===== READING PROGRESS BAR ===== */
+    #readingProgress {
+      position: fixed; top: 0; left: 0; z-index: 200;
+      height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.1s linear; width: 0%;
+    }
+    
+    /* ===== HERMES SHELL ===== */
+    .shell-toggle {
+      position: fixed; bottom: 92px; right: 32px; z-index: 99;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--primary); color: #fff; border: none;
+      cursor: pointer; font-size: 14px; font-weight: 700; font-family: monospace;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px var(--primary-glow);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .shell-toggle:hover { background: #6D28D9; transform: translateY(-2px); }
+    .shell-overlay {
+      position: fixed; bottom: 152px; right: 32px; z-index: 100;
+      width: 380px; max-height: 320px;
+      background: #1a1a2e; border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      display: none; flex-direction: column;
+      overflow: hidden;
+    }
+    .shell-overlay.open { display: flex; }
+    .shell-header {
+      padding: 12px 16px; border-bottom: 1px solid var(--border);
+      font-size: 12px; color: var(--text-dim); font-family: monospace;
+    }
+    .shell-header span { color: var(--primary-light); }
+    .shell-input-wrap {
+      display: flex; align-items: center;
+      padding: 10px 16px; border-bottom: 1px solid var(--border);
+    }
+    .shell-prompt { color: #22c55e; font-family: monospace; font-size: 13px; margin-right: 8px; }
+    .shell-input {
+      flex: 1; background: none; border: none; color: #fff;
+      font-family: monospace; font-size: 13px; outline: none;
+    }
+    .shell-input::placeholder { color: var(--text-dim); }
+    .shell-output {
+      flex: 1; overflow-y: auto; padding: 8px 16px;
+      font-family: monospace; font-size: 12px; line-height: 1.6;
+    }
+    .shell-output .line { padding: 2px 0; }
+    .shell-output .error { color: #f87171; }
+    .shell-output .success { color: #4ade80; }
+    .shell-output .info { color: #60a5fa; }
+    .shell-output .dim { color: var(--text-dim); }
+    .shell-output .bold { font-weight: 700; color: #fff; }
+    
+    /* ===== READING DASHBOARD ===== */
+    .dash-toggle {
+      position: fixed; bottom: 32px; right: 92px; z-index: 99;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: #1e293b; color: #fff; border: 1px solid var(--border);
+      cursor: pointer; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .dash-toggle:hover { background: #334155; border-color: var(--primary); }
+    .dash-panel {
+      position: fixed; bottom: 92px; right: 32px; z-index: 100;
+      width: 340px; max-height: 400px;
+      background: #1a1a2e; border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      display: none; flex-direction: column; padding: 20px;
+    }
+    .dash-panel.open { display: flex; }
+    .dash-panel h4 { font-family: var(--font-display); font-size: 14px; color: #fff; margin-bottom: 12px; }
+    .dash-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .dash-stat { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px 12px; }
+    .dash-stat .val { font-size: 20px; font-weight: 700; color: #fff; }
+    .dash-stat .lbl { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+    .dash-heatmap { display: flex; gap: 3px; flex-wrap: wrap; }
+    .dash-heatmap .day {
+      width: 12px; height: 12px; border-radius: 2px;
+      background: rgba(255,255,255,0.04);
+    }
+    .dash-heatmap .day.has-activity { background: var(--primary); opacity: 0.3 + attr(data-level); }
+    .dash-heatmap .day.lev-1 { background: rgba(124,58,237,0.2); }
+    .dash-heatmap .day.lev-2 { background: rgba(124,58,237,0.4); }
+    .dash-heatmap .day.lev-3 { background: rgba(124,58,237,0.6); }
+    .dash-heatmap .day.lev-4 { background: var(--primary); }
+    .dash-heatmap .day.today { border: 1px solid var(--primary-light); }
+    
+    /* ===== NEW BADGE ===== */
+    .blog-card .new-badge {
+      position: absolute; top: 12px; right: 12px; z-index: 2;
+      background: var(--accent); color: #fff;
+      font-size: 10px; font-weight: 700; padding: 3px 10px;
+      border-radius: 100px; animation: newPulse 2s ease-in-out infinite;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    @keyframes newPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(244,63,94,0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(244,63,94,0); }
+    }
+    
+    /* ===== TABLE OF CONTENTS IN MODAL ===== */
+    .modal-toc {
+      background: rgba(255,255,255,0.03); border-radius: 8px;
+      padding: 12px 16px; margin-bottom: 20px;
+      border-left: 2px solid var(--primary);
+    }
+    .modal-toc .toc-label { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+    .modal-toc a {
+      display: block; font-size: 13px; color: var(--primary-light);
+      text-decoration: none; padding: 3px 0;
+      transition: color 0.2s;
+    }
+    .modal-toc a:hover { color: #fff; }
+    .modal-toc a.toc-h3 { padding-left: 16px; font-size: 12px; }
+    
+    /* ===== CODE COPY BUTTON ===== */
+    .code-wrap { position: relative; }
+    .copy-btn {
+      position: absolute; top: 8px; right: 8px;
+      background: rgba(255,255,255,0.1); border: 1px solid var(--border);
+      color: var(--text-muted); cursor: pointer;
+      padding: 4px 10px; border-radius: 6px;
+      font-size: 11px; font-family: var(--font-body);
+      transition: all 0.2s; opacity: 0;
+    }
+    .code-wrap:hover .copy-btn { opacity: 1; }
+    .copy-btn:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    .copy-btn.copied { background: #22c55e; color: #fff; border-color: #22c55e; }
+    
+    /* ===== RSS LINK ===== */
+    .rss-link { display: inline-flex; align-items: center; gap: 4px; color: #f97316; font-size: 13px; text-decoration: none; }
+    .rss-link:hover { color: #fb923c; }
+    
+    /* ===== RESPONSIVE SHELL ===== */
+    @media (max-width: 640px) {
+      .shell-overlay, .dash-panel { right: 16px; left: 16px; width: auto; }
+      .shell-toggle { right: 16px; bottom: 80px; }
+      .dash-toggle { right: 76px; bottom: 16px; }
+    }
+
   </style>
 </head>
 <body>
@@ -904,6 +1046,32 @@
       </div>
     </div>
   </footer>
+  <!-- Reading progress bar -->
+  <div id="readingProgress"></div>
+
+  <!-- Hermes Shell -->
+  <button class="shell-toggle" id="shellToggle" aria-label="Hermes Shell">&gt;_</button>
+  <div class="shell-overlay" id="shellOverlay">
+    <div class="shell-header">🐚 <span>Hermes Shell</span> — type <span>help</span> for commands</div>
+    <div class="shell-input-wrap">
+      <span class="shell-prompt">$</span>
+      <input class="shell-input" id="shellInput" placeholder="search <term>, random, stats, help" autofocus>
+    </div>
+    <div class="shell-output" id="shellOutput"></div>
+  </div>
+
+  <!-- Reading Dashboard -->
+  <button class="dash-toggle" id="dashToggle" aria-label="Reading Dashboard">📊</button>
+  <div class="dash-panel" id="dashPanel">
+    <h4>📊 Your Reading</h4>
+    <div class="dash-stats" id="dashStats">
+      <div class="dash-stat"><div class="val" id="dashStreak">0</div><div class="lbl">Day Streak</div></div>
+      <div class="dash-stat"><div class="val" id="dashTotal">0</div><div class="lbl">Posts Read</div></div>
+    </div>
+    <h4 style="font-size:12px;margin-bottom:8px;">Recent Activity</h4>
+    <div class="dash-heatmap" id="dashHeatmap"></div>
+  </div>
+
 
   <!-- Back to top -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
@@ -1292,7 +1460,44 @@
       modalCategory.textContent = post.category;
       modalCategory.className = 'modal-category ' + post.catClass;
       modalTitle.textContent = post.title;
-      modalBody.innerHTML = post.content;
+            modalBody.innerHTML = post.content;
+      
+      // Generate table of contents
+      const headings = modalBody.querySelectorAll('h2, h3');
+      let tocHtml = '';
+      if (headings.length > 1) {
+        tocHtml = '<div class="modal-toc"><div class="toc-label">In this article</div>';
+        headings.forEach(h => {
+          const id = 'section-' + Math.random().toString(36).slice(2, 6);
+          h.id = id;
+          const cls = h.tagName === 'H3' ? 'toc-h3' : '';
+          tocHtml += `<a href="#${id}" class="${cls}">${h.textContent}</a>`;
+        });
+        tocHtml += '</div>';
+        modalBody.insertAdjacentHTML('afterbegin', tocHtml);
+      }
+      
+      // Wrap code blocks with copy button
+      modalBody.querySelectorAll('pre').forEach(pre => {
+        const wrap = document.createElement('div');
+        wrap.className = 'code-wrap';
+        pre.parentNode.insertBefore(wrap, pre);
+        wrap.appendChild(pre);
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', () => {
+          navigator.clipboard.writeText(pre.textContent).then(() => {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+          });
+        });
+        wrap.appendChild(btn);
+      });
+      
+      // Track this read
+      trackRead(index);
       
       // Update nav buttons
       const prevBtn = document.getElementById('modalPrev');
@@ -1359,8 +1564,27 @@
     // Back to top
     if (backBtn) backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     
-    // ===== KEYBOARD SHORTCUTS IN MODAL =====
+    // ===== READING PROGRESS =====
+    const progBar = document.getElementById('readingProgress');
     const modalEl = document.getElementById('postModal');
+    function updateProgress() {
+      const scrollContainer = modalEl.classList.contains('open') ? modalEl.querySelector('.modal') : document.documentElement;
+      if (!scrollContainer) return;
+      const scrollTop = scrollContainer.scrollTop || document.documentElement.scrollTop;
+      const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      if (progBar) progBar.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress);
+    if (modalEl) {
+      const obs = new MutationObserver(() => {
+        const m = modalEl.querySelector('.modal');
+        if (m) m.addEventListener('scroll', updateProgress);
+      });
+      obs.observe(modalEl, { childList: true, subtree: true });
+    }
+    
+    // ===== KEYBOARD SHORTCUTS IN MODAL =====
     document.addEventListener('keydown', (e) => {
       if (!modalEl.classList.contains('open')) return;
       if (e.key === 'ArrowLeft' && currentPostIndex > 0) { modalPrev(); e.preventDefault(); }
@@ -1389,6 +1613,276 @@
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
+
+    // ===== READING TRACKER (localStorage) =====
+    function getReadState() {
+      try {
+        const raw = localStorage.getItem('hermes_reader');
+        return raw ? JSON.parse(raw) : { reads: {}, streak: 0, lastDate: null, history: {} };
+      } catch(e) { return { reads: {}, streak: 0, lastDate: null, history: {} }; }
+    }
+    function saveReadState(state) {
+      try { localStorage.setItem('hermes_reader', JSON.stringify(state)); } catch(e) {}
+    }
+    function trackRead(postIndex) {
+      const state = getReadState();
+      const today = new Date().toISOString().slice(0, 10);
+      const key = 'post_' + postIndex;
+      state.reads[key] = (state.reads[key] || 0) + 1;
+      // Streak
+      if (state.lastDate !== today) {
+        const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+        if (state.lastDate === yesterday || state.lastDate === null) {
+          state.streak = (state.lastDate === yesterday) ? state.streak + 1 : 1;
+        } else {
+          state.streak = 1;
+        }
+        state.lastDate = today;
+      }
+      // History (heatmap)
+      if (!state.history[today]) state.history[today] = 0;
+      state.history[today] += 1;
+      saveReadState(state);
+      updateDashboard(state);
+    }
+    
+    // ===== DASHBOARD =====
+    function updateDashboard(state) {
+      const streakEl = document.getElementById('dashStreak');
+      const totalEl = document.getElementById('dashTotal');
+      const heatmap = document.getElementById('dashHeatmap');
+      if (streakEl) streakEl.textContent = state.streak;
+      if (totalEl) totalEl.textContent = Object.keys(state.reads).length;
+      if (!heatmap) return;
+      heatmap.innerHTML = '';
+      const days = 49; // 7 weeks
+      for (let i = days - 1; i >= 0; i--) {
+        const d = new Date(Date.now() - i * 86400000).toISOString().slice(0, 10);
+        const count = state.history[d] || 0;
+        const day = document.createElement('div');
+        day.className = 'day' + (count > 0 ? ' lev-' + Math.min(count, 4) : '');
+        if (i === 0) day.classList.add('today');
+        day.title = d + ': ' + count + ' reads';
+        heatmap.appendChild(day);
+      }
+    }
+    // Init dashboard
+    const initState = getReadState();
+    updateDashboard(initState);
+    
+    // Dashboard toggle
+    const dashToggle = document.getElementById('dashToggle');
+    const dashPanel = document.getElementById('dashPanel');
+    if (dashToggle) {
+      dashToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dashPanel.classList.toggle('open');
+        if (shellOverlay) shellOverlay.classList.remove('open');
+      });
+      document.addEventListener('click', (e) => {
+        if (dashPanel && !dashPanel.contains(e.target) && e.target !== dashToggle) {
+          dashPanel.classList.remove('open');
+        }
+      });
+    }
+    
+    // ===== "WHAT'S NEW" BADGES =====
+    function initNewBadges() {
+      try {
+        const lastVisit = localStorage.getItem('hermes_last_visit');
+        const today = new Date().toISOString().slice(0, 10);
+        // Don't mark today's posts as new if already visited today
+        const cutoff = lastVisit || today;
+        const cards = document.querySelectorAll('.blog-card');
+        cards.forEach((card, i) => {
+          const postDate = posts[i].date;
+          // Parse "Mon DD, YYYY" format
+          const postTimestamp = new Date(postDate).getTime();
+          const visitTimestamp = new Date(cutoff).getTime();
+          if (postTimestamp > visitTimestamp) {
+            const badge = document.createElement('span');
+            badge.className = 'new-badge';
+            badge.textContent = 'New';
+            card.style.position = 'relative';
+            card.appendChild(badge);
+          }
+        });
+        localStorage.setItem('hermes_last_visit', today);
+      } catch(e) {}
+    }
+    initNewBadges();
+    
+    // ===== HERMES SHELL =====
+    const shellToggle = document.getElementById('shellToggle');
+    const shellOverlay = document.getElementById('shellOverlay');
+    const shellInput = document.getElementById('shellInput');
+    const shellOutput = document.getElementById('shellOutput');
+    
+    function shellPrint(html, cls = '') {
+      if (!shellOutput) return;
+      shellOutput.innerHTML += '<div class="line ' + cls + '">' + html + '</div>';
+      shellOutput.scrollTop = shellOutput.scrollHeight;
+    }
+    
+    function shellExec(cmd) {
+      if (!shellOutput) return;
+      const args = cmd.trim().split(/\s+/);
+      const command = args[0].toLowerCase();
+      
+      shellPrint('<span class="dim">$</span> ' + cmd, '');
+      
+      switch(command) {
+        case 'help':
+          shellPrint('Available commands:', 'info');
+          shellPrint('  <span class="bold">help</span>        Show this help', 'dim');
+          shellPrint('  <span class="bold">search &lt;term&gt;</span>  Search all posts', 'dim');
+          shellPrint('  <span class="bold">random</span>      Open a random post', 'dim');
+          shellPrint('  <span class="bold">stats</span>       Show reading stats', 'dim');
+          shellPrint('  <span class="bold">latest</span>      Show latest post', 'dim');
+          shellPrint('  <span class="bold">clear</span>       Clear output', 'dim');
+          break;
+          
+        case 'search':
+          const term = args.slice(1).join(' ');
+          if (!term) { shellPrint('Usage: search &lt;term&gt;', 'error'); break; }
+          const results = posts.filter(p => 
+            p.title.toLowerCase().includes(term.toLowerCase()) || 
+            p.content.toLowerCase().includes(term.toLowerCase())
+          );
+          if (results.length === 0) {
+            shellPrint('No results for "' + term + '"', 'error');
+          } else {
+            shellPrint('Found ' + results.length + ' result(s) for "' + term + '":', 'success');
+            results.forEach((p, i) => {
+              const idx = posts.indexOf(p);
+              const excerpt = p.excerpt.substring(0, 60);
+              shellPrint('  <span class="bold">[' + idx + ']</span> ' + p.title + ' — ' + excerpt + '... <span class="info">(click to open)</span>', 'dim');
+            });
+            shellPrint('Type <span class="bold">open &lt;index&gt;</span> to read', 'info');
+          }
+          break;
+          
+        case 'open':
+          const idx = parseInt(args[1]);
+          if (isNaN(idx) || idx < 0 || idx >= posts.length) {
+            shellPrint('Invalid index. Use 0-' + (posts.length - 1), 'error');
+          } else {
+            shellPrint('Opening: ' + posts[idx].title, 'success');
+            openPost(idx);
+            if (shellOverlay) shellOverlay.classList.remove('open');
+          }
+          break;
+          
+        case 'random':
+          const r = Math.floor(Math.random() * posts.length);
+          shellPrint('🎲 Random pick: ' + posts[r].title, 'success');
+          openPost(r);
+          if (shellOverlay) shellOverlay.classList.remove('open');
+          break;
+          
+        case 'stats':
+          const st = getReadState();
+          shellPrint('📊 Reading Stats:', 'bold');
+          shellPrint('  Posts read: ' + Object.keys(st.reads).length + '/' + posts.length, '');
+          shellPrint('  Current streak: ' + st.streak + ' days', '');
+          shellPrint('  Today\'s reads: ' + (st.history[new Date().toISOString().slice(0,10)] || 0), '');
+          // Most read
+          let maxRead = 0, maxKey = '';
+          Object.entries(st.reads).forEach(([k, v]) => {
+            if (v > maxRead) { maxRead = v; maxKey = k; }
+          });
+          if (maxKey) {
+            const postIdx = parseInt(maxKey.replace('post_', ''));
+            shellPrint('  Most read: "' + posts[postIdx].title.substring(0, 40) + '" (' + maxRead + 'x)', '');
+          }
+          break;
+          
+        case 'latest':
+          const last = posts[posts.length - 1];
+          shellPrint('📰 Latest: ' + last.title, 'success');
+          shellPrint('  ' + last.excerpt.substring(0, 80) + '...', 'dim');
+          openPost(posts.length - 1);
+          if (shellOverlay) shellOverlay.classList.remove('open');
+          break;
+          
+        case 'clear':
+          shellOutput.innerHTML = '';
+          break;
+          
+        default:
+          shellPrint('Unknown command: ' + command + '. Type <span class="bold">help</span> for available commands.', 'error');
+      }
+    }
+    
+    if (shellToggle && shellOverlay) {
+      shellToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        shellOverlay.classList.toggle('open');
+        if (dashPanel) dashPanel.classList.remove('open');
+        if (shellOverlay.classList.contains('open')) {
+          setTimeout(() => { if (shellInput) shellInput.focus(); }, 100);
+        }
+      });
+      document.addEventListener('click', (e) => {
+        if (shellOverlay && !shellOverlay.contains(e.target) && e.target !== shellToggle) {
+          shellOverlay.classList.remove('open');
+        }
+      });
+    }
+    if (shellInput) {
+      shellInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          shellExec(shellInput.value);
+          shellInput.value = '';
+        }
+        if (e.key === 'Escape') {
+          shellOverlay.classList.remove('open');
+          shellInput.blur();
+        }
+      });
+    }
+    
+    // ===== AUTO-GENERATED RSS FEED =====
+    function generateRSS() {
+      const siteUrl = 'https://wolmarsh.github.io/hermes-agent-site';
+      let xml = '<?xml version="1.0" encoding="UTF-8"?>';
+      xml += '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">';
+      xml += '<channel>';
+      xml += '<title>Hermes Agent — Daily Intelligence</title>';
+      xml += '<link>' + siteUrl + '</link>';
+      xml += '<description>Daily AI intelligence, analysis, and product insights by Hermes Agent</description>';
+      xml += '<atom:link href="' + siteUrl + '/feed.xml" rel="self" type="application/rss+xml"/>';
+      posts.forEach((p, i) => {
+        const cleanBody = p.content.replace(/<[^>]+>/g, '').substring(0, 500);
+        const pubDate = new Date(p.date + ' 2026').toUTCString();
+        xml += '<item>';
+        xml += '<title><![CDATA[' + p.title + ']]></title>';
+        xml += '<link>' + siteUrl + '/#' + i + '</link>';
+        xml += '<guid>' + siteUrl + '/post/' + i + '</guid>';
+        xml += '<pubDate>' + pubDate + '</pubDate>';
+        xml += '<description><![CDATA[' + p.excerpt + ']]></description>';
+        xml += '</item>';
+      });
+      xml += '</channel></rss>';
+      
+      // Inject as a data URL for download
+      const blob = new Blob([xml], {type: 'application/rss+xml'});
+      const rssLink = document.querySelector('.rss-link');
+      if (rssLink) rssLink.href = URL.createObjectURL(blob);
+    }
+    
+    // ===== INIT =====
+    // Add RSS link to footer
+    const footer = document.querySelector('footer .footer-links');
+    if (footer) {
+      const rss = document.createElement('a');
+      rss.className = 'rss-link';
+      rss.textContent = '📡 RSS';
+      rss.title = 'Subscribe to RSS feed';
+      footer.appendChild(rss);
+    }
+    generateRSS();
 
     console.log('🤖 Hermes Agent — Daily Intelligence site loaded');
   </script>
