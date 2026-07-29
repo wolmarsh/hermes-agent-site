@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClickUp — 60-Second Product Launch Video</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: #0a0a12; color: #e2e8f0;
+      padding: 48px 24px;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 {
+      font-size: 40px; font-weight: 800; letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #a78bfa, #7c3aed, #4f46e5);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 6px;
+      line-height: 1.15;
+    }
+    .subtitle { color: #94a3b8; font-size: 17px; margin-bottom: 40px; }
+    .meta-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr);
+      gap: 12px; margin-bottom: 40px;
+    }
+    .meta-card {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px; padding: 14px 16px;
+    }
+    .meta-card .label { font-size: 10px; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; }
+    .meta-card .val { font-size: 15px; font-weight: 700; color: #fff; margin-top: 3px; }
+    .timeline { display: flex; height: 28px; border-radius: 14px; overflow: hidden; margin-bottom: 40px; }
+    .timeline .seg {
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.8);
+      letter-spacing: 0.03em;
+    }
+    .script-card {
+      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px; margin-bottom: 28px; overflow: hidden;
+    }
+    .script-card .hdr {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .script-card .hdr .num {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 12px; color: #fff; flex-shrink: 0;
+    }
+    .script-card .hdr .ttl { font-size: 15px; font-weight: 700; color: #fff; }
+    .script-card .hdr .tm { font-size: 11px; color: #64748b; font-family: monospace; margin-left: auto; }
+    .script-card .body { display: grid; grid-template-columns: 1fr 1fr; }
+    .script-card .vis { padding: 16px 20px; border-right: 1px solid rgba(255,255,255,0.06); }
+    .script-card .vis img { width: 100%; border-radius: 6px; display: block; }
+    .script-card .vo { padding: 16px 20px; }
+    .script-card .vo .lbl { color: #64748b; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+    .script-card .vo p { font-size: 13.5px; line-height: 1.7; color: #cbd5e1; }
+    .script-card .ontop {
+      padding: 10px 20px; border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 12px; color: #fbbf24;
+    }
+    .notes {
+      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px; padding: 24px; margin-bottom: 40px;
+    }
+    .notes h2 { font-size: 17px; margin-bottom: 14px; color: #fff; }
+    .notes ul { list-style: none; }
+    .notes li { padding: 6px 0; font-size: 13px; color: #94a3b8; }
+    .notes li strong { color: #e2e8f0; }
+    @media (max-width: 640px) {
+      .meta-grid { grid-template-columns: repeat(3, 1fr); }
+      .script-card .body { grid-template-columns: 1fr; }
+      .script-card .vis { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ClickUp — Product Launch<br>60-Second Video Package</h1>
+    <p class="subtitle">Full storyboard + script + production notes for the ClickUp 2026 launch campaign</p>
+    
+    <div class="meta-grid">
+      <div class="meta-card"><div class="label">Format</div><div class="val">60s · 16:9</div></div>
+      <div class="meta-card"><div class="label">Style</div><div class="val">High-energy tech</div></div>
+      <div class="meta-card"><div class="label">Tone</div><div class="val">Bold · ROI-driven</div></div>
+      <div class="meta-card"><div class="label">Audio</div><div class="val">VO + electronic pulse</div></div>
+      <div class="meta-card"><div class="label">Scenes</div><div class="val">8</div></div>
+      <div class="meta-card"><div class="label">CTA</div><div class="val">"Start Free"</div></div>
+    </div>
+    
+    <div class="timeline"><div class="seg" style="width:12.5%;background:#ef4444">Problem</div><div class="seg" style="width:12.5%;background:#7c3aed">Solution</div><div class="seg" style="width:12.5%;background:#a855f7">Brain 2</div><div class="seg" style="width:12.5%;background:#f59e0b">Agents</div><div class="seg" style="width:12.5%;background:#22c55e">ROI</div><div class="seg" style="width:12.5%;background:#10b981">Results</div><div class="seg" style="width:12.5%;background:#7c3aed">Proof</div><div class="seg" style="width:12.5%;background:#4f46e5">CTA</div>    </div>
+    
+    <div class="notes">
+      <h2>🎬 Production Notes</h2>
+      <ul>
+        <li><strong>Visual rhythm:</strong> Fast cuts (1.5–3s). UI screen recordings from a real ClickUp workspace. No stock footage.</li>
+        <li><strong>Voiceover:</strong> Mid-range, confident, ~160 words/min. Slight reverb on key phrases ("Brain 2", "Super Agents").</li>
+        <li><strong>Transitions:</strong> Scene 1→2 — fragmented app icons fly together → ClickUp logo. Scene 3→4 — Brain 2 morphs into Agent. Scene 6→7 — graph animates up.</li>
+        <li><strong>Music:</strong> Starts sparse (pulse + sub-bass). Builds layer by layer. Full drop at 0:33 (ROI scene). Resolves at 0:56 for CTA.</li>
+        <li><strong>End card:</strong> ClickUp logo centered, "Software to replace all software" beneath, two buttons: "Start Free" (primary purple) | "Watch Demo" (outline white).</li>
+      </ul>
+    </div>
+    <div class="script-card">
+      <div class="hdr">
+        <div class="num" style="background:#ef4444">1</div>
+        <div class="ttl">The Problem: Tool Sprawl</div>
+        <div class="tm">0:00 – 0:07</div>
+      </div>
+      <div class="body">
+        <div class="vis"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20400%22%20width%3D%22800%22%20height%3D%22400%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg1%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231e1b4b%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230f0f23%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22url%28%23bg1%29%22%20rx%3D%224%22/%3E%0A%20%20%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22%23ef4444%22%20opacity%3D%22.9%22/%3E%0A%20%20%3Ctext%20x%3D%2270%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22700%22%3ESCENE%201%3C/text%3E%0A%20%20%3Crect%20x%3D%22680%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22rgba%280%2C0%2C0%2C0.4%29%22/%3E%0A%20%20%3Ctext%20x%3D%22730%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2211%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3E%E2%8F%B1%200%3A00%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%2290%22%20fill%3D%22%23fff%22%20font-size%3D%2226%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22800%22%20letter-spacing%3D%22-0.5%22%3EThe%20Problem%3A%20Tool%20Sprawl%3C/text%3E%0A%20%20%3Ccircle%20cx%3D%22400%22%20cy%3D%22180%22%20r%3D%2255%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.06%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22192%22%20font-size%3D%2244%22%20text-anchor%3D%22middle%22%3E%F0%9F%8E%AF%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22280%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3EFragmented%20app%20icons%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22302%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3Efloating%20apart.%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22324%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3EData%20silos.%3C/text%3E%5Cn%0A%20%20%3Crect%20x%3D%22120%22%20y%3D%22350%22%20width%3D%22560%22%20height%3D%2236%22%20rx%3D%228%22%20fill%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22373%22%20fill%3D%22%23fbbf24%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22600%22%3EYour%20team%20uses%208%2B%20tools.%20Context%20drowns.%20Nothing%20talks.%3C/text%3E%0A%3C/svg%3E" alt="Scene 1"></div>
+        <div class="vo"><div class="lbl">🎙 Voiceover</div><p>"Your team uses eight different tools. Slack for chat, Asana for tasks, Google Drive for docs, Loom for videos, Notion for wikis. Nothing talks. Context gets lost. Your team burns hours just switching."</p></div>
+      </div>
+      <div class="ontop">📺 <strong>On-screen:</strong> "Your team uses 8+ tools. Context drowns. Nothing talks to each other."</div>
+    </div>    <div class="script-card">
+      <div class="hdr">
+        <div class="num" style="background:#7c3aed">2</div>
+        <div class="ttl">One Platform to Rule Them All</div>
+        <div class="tm">0:07 – 0:15</div>
+      </div>
+      <div class="body">
+        <div class="vis"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20400%22%20width%3D%22800%22%20height%3D%22400%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg2%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231e1b4b%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23312e81%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22url%28%23bg2%29%22%20rx%3D%224%22/%3E%0A%20%20%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22%237c3aed%22%20opacity%3D%22.9%22/%3E%0A%20%20%3Ctext%20x%3D%2270%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22700%22%3ESCENE%202%3C/text%3E%0A%20%20%3Crect%20x%3D%22680%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22rgba%280%2C0%2C0%2C0.4%29%22/%3E%0A%20%20%3Ctext%20x%3D%22730%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2211%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3E%E2%8F%B1%200%3A07%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%2290%22%20fill%3D%22%23fff%22%20font-size%3D%2226%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22800%22%20letter-spacing%3D%22-0.5%22%3EOne%20Platform%20to%20Rule%20Them%20All%3C/text%3E%0A%20%20%3Ccircle%20cx%3D%22400%22%20cy%3D%22180%22%20r%3D%2255%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.06%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22192%22%20font-size%3D%2244%22%20text-anchor%3D%22middle%22%3E%E2%9A%A1%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22280%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3EAll%20icons%20converging%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22302%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3Einto%20single%20ClickUp%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22324%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3Einterface.%20Clean.%3C/text%3E%5Cn%0A%20%20%3Crect%20x%3D%22120%22%20y%3D%22350%22%20width%3D%22560%22%20height%3D%2236%22%20rx%3D%228%22%20fill%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22373%22%20fill%3D%22%23fbbf24%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22600%22%3EClickUp%20replaces%20100%2B%20products%20in%20one%20platform.%3C/text%3E%0A%3C/svg%3E" alt="Scene 2"></div>
+        <div class="vo"><div class="lbl">🎙 Voiceover</div><p>"ClickUp replaces them all. Projects, Docs, Chat, Whiteboards, Goals, Calendar, Time Tracking, Dashboards — over 100 products in one platform. One login. One source of truth for your entire company."</p></div>
+      </div>
+      <div class="ontop">📺 <strong>On-screen:</strong> "ClickUp replaces 100+ products in one platform. One login. One truth."</div>
+    </div>    <div class="script-card">
+      <div class="hdr">
+        <div class="num" style="background:#a855f7">3</div>
+        <div class="ttl">Brain 2 — Context AI</div>
+        <div class="tm">0:15 – 0:24</div>
+      </div>
+      <div class="body">
+        <div class="vis"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20400%22%20width%3D%22800%22%20height%3D%22400%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg3%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231a0533%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23231061%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22url%28%23bg3%29%22%20rx%3D%224%22/%3E%0A%20%20%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22%23a855f7%22%20opacity%3D%22.9%22/%3E%0A%20%20%3Ctext%20x%3D%2270%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22700%22%3ESCENE%203%3C/text%3E%0A%20%20%3Crect%20x%3D%22680%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22rgba%280%2C0%2C0%2C0.4%29%22/%3E%0A%20%20%3Ctext%20x%3D%22730%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2211%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3E%E2%8F%B1%200%3A15%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%2290%22%20fill%3D%22%23fff%22%20font-size%3D%2226%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22800%22%20letter-spacing%3D%22-0.5%22%3EBrain%202%20%E2%80%94%20Context%20AI%3C/text%3E%0A%20%20%3Ccircle%20cx%3D%22400%22%20cy%3D%22180%22%20r%3D%2255%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.06%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22192%22%20font-size%3D%2244%22%20text-anchor%3D%22middle%22%3E%F0%9F%A7%A0%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22280%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3EAI%20brain%20pulsing%2C%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22302%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3Econnected%20to%20your%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22324%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3Eworkspace%20data.%3C/text%3E%5Cn%0A%20%20%3Crect%20x%3D%22120%22%20y%3D%22350%22%20width%3D%22560%22%20height%3D%2236%22%20rx%3D%228%22%20fill%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22373%22%20fill%3D%22%23fbbf24%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22600%22%3EBrain%C2%B2%20%E2%80%94%20the%20only%20AI%20that%20knows%20your%20actual%20work.%3C/text%3E%0A%3C/svg%3E" alt="Scene 3"></div>
+        <div class="vo"><div class="lbl">🎙 Voiceover</div><p>"Brain 2. The only AI that actually knows your work. It learns your team's language, your shorthand, your preferences. It's not a generic chatbot — it's your team's intelligence, amplified by AI."</p></div>
+      </div>
+      <div class="ontop">📺 <strong>On-screen:</strong> "Brain² — the only AI that knows your work. Your tone. Your data. Your context."</div>
+    </div>    <div class="script-card">
+      <div class="hdr">
+        <div class="num" style="background:#f59e0b">4</div>
+        <div class="ttl">Super Agents</div>
+        <div class="tm">0:24 – 0:33</div>
+      </div>
+      <div class="body">
+        <div class="vis"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20400%22%20width%3D%22800%22%20height%3D%22400%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg4%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230f172a%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%231c1917%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22url%28%23bg4%29%22%20rx%3D%224%22/%3E%0A%20%20%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22%23f59e0b%22%20opacity%3D%22.9%22/%3E%0A%20%20%3Ctext%20x%3D%2270%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22700%22%3ESCENE%204%3C/text%3E%0A%20%20%3Crect%20x%3D%22680%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22rgba%280%2C0%2C0%2C0.4%29%22/%3E%0A%20%20%3Ctext%20x%3D%22730%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2211%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3E%E2%8F%B1%200%3A24%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%2290%22%20fill%3D%22%23fff%22%20font-size%3D%2226%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22800%22%20letter-spacing%3D%22-0.5%22%3ESuper%20Agents%3C/text%3E%0A%20%20%3Ccircle%20cx%3D%22400%22%20cy%3D%22180%22%20r%3D%2255%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.06%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22192%22%20font-size%3D%2244%22%20text-anchor%3D%22middle%22%3E%F0%9F%A4%96%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22280%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3EAI%20agents%20handling%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22302%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3Ewriting%2C%20planning%2C%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22324%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3Esummarizing%2C%20coding.%3C/text%3E%5Cn%0A%20%20%3Crect%20x%3D%22120%22%20y%3D%22350%22%20width%3D%22560%22%20height%3D%2236%22%20rx%3D%228%22%20fill%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22373%22%20fill%3D%22%23fbbf24%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22600%22%3ESuper%20Agents%20%E2%80%94%20build%20custom%20AI%20workers%20in%20minutes.%3C/text%3E%0A%3C/svg%3E" alt="Scene 4"></div>
+        <div class="vo"><div class="lbl">🎙 Voiceover</div><p>"Build Super Agents that work for you. AI workers that automate workflows, generate content, summarize meetings, and take action across your workspace. Deploy in minutes, not weeks."</p></div>
+      </div>
+      <div class="ontop">📺 <strong>On-screen:</strong> "Super Agents — build custom AI workers for any workflow in minutes."</div>
+    </div>    <div class="script-card">
+      <div class="hdr">
+        <div class="num" style="background:#22c55e">5</div>
+        <div class="ttl">Real ROI</div>
+        <div class="tm">0:33 – 0:42</div>
+      </div>
+      <div class="body">
+        <div class="vis"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20400%22%20width%3D%22800%22%20height%3D%22400%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg5%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23064e3b%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23065f46%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22url%28%23bg5%29%22%20rx%3D%224%22/%3E%0A%20%20%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22%2322c55e%22%20opacity%3D%22.9%22/%3E%0A%20%20%3Ctext%20x%3D%2270%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22700%22%3ESCENE%205%3C/text%3E%0A%20%20%3Crect%20x%3D%22680%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22rgba%280%2C0%2C0%2C0.4%29%22/%3E%0A%20%20%3Ctext%20x%3D%22730%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2211%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3E%E2%8F%B1%200%3A33%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%2290%22%20fill%3D%22%23fff%22%20font-size%3D%2226%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22800%22%20letter-spacing%3D%22-0.5%22%3EReal%20ROI%3C/text%3E%0A%20%20%3Ccircle%20cx%3D%22400%22%20cy%3D%22180%22%20r%3D%2255%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.06%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22192%22%20font-size%3D%2244%22%20text-anchor%3D%22middle%22%3E%F0%9F%92%B0%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22280%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3ESide-by-side%20cost%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22302%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3Ecomparison.%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22324%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3E%24282K%20savings.%3C/text%3E%5Cn%0A%20%20%3Crect%20x%3D%22120%22%20y%3D%22350%22%20width%3D%22560%22%20height%3D%2236%22%20rx%3D%228%22%20fill%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22373%22%20fill%3D%22%23fbbf24%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22600%22%3EOne%20platform.%20Unlimited%20features.%20From%20%247/user/month.%3C/text%3E%0A%3C/svg%3E" alt="Scene 5"></div>
+        <div class="vo"><div class="lbl">🎙 Voiceover</div><p>"A typical 500-person company spends over $350,000 a year on fragmented software. ClickUp replaces it all for $72,000. That's a quarter-million dollars back to your bottom line. Real money."</p></div>
+      </div>
+      <div class="ontop">📺 <strong>On-screen:</strong> "One platform. Unlimited features. From $7/user/month. Save $282K/year."</div>
+    </div>    <div class="script-card">
+      <div class="hdr">
+        <div class="num" style="background:#10b981">6</div>
+        <div class="ttl">400% More Done</div>
+        <div class="tm">0:42 – 0:50</div>
+      </div>
+      <div class="body">
+        <div class="vis"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20400%22%20width%3D%22800%22%20height%3D%22400%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg6%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231c1917%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23292524%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22url%28%23bg6%29%22%20rx%3D%224%22/%3E%0A%20%20%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22%2310b981%22%20opacity%3D%22.9%22/%3E%0A%20%20%3Ctext%20x%3D%2270%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22700%22%3ESCENE%206%3C/text%3E%0A%20%20%3Crect%20x%3D%22680%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22rgba%280%2C0%2C0%2C0.4%29%22/%3E%0A%20%20%3Ctext%20x%3D%22730%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2211%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3E%E2%8F%B1%200%3A42%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%2290%22%20fill%3D%22%23fff%22%20font-size%3D%2226%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22800%22%20letter-spacing%3D%22-0.5%22%3E400%25%20More%20Done%3C/text%3E%0A%20%20%3Ccircle%20cx%3D%22400%22%20cy%3D%22180%22%20r%3D%2255%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.06%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22192%22%20font-size%3D%2244%22%20text-anchor%3D%22middle%22%3E%F0%9F%93%88%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22280%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3EGraph%20trending%20up.%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22302%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3EGreen%20arrow.%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22324%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3EProductivity%20surge.%3C/text%3E%5Cn%0A%20%20%3Crect%20x%3D%22120%22%20y%3D%22350%22%20width%3D%22560%22%20height%3D%2236%22%20rx%3D%228%22%20fill%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22373%22%20fill%3D%22%23fbbf24%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22600%22%3ETeams%20get%20400%25%20more%20done.%20Stop%20managing%20tools.%3C/text%3E%0A%3C/svg%3E" alt="Scene 6"></div>
+        <div class="vo"><div class="lbl">🎙 Voiceover</div><p>"ClickUp teams report getting four times more done. 400%. Because your team stops managing tools and starts shipping work. That's the difference between drowning and full speed."</p></div>
+      </div>
+      <div class="ontop">📺 <strong>On-screen:</strong> "Teams get 400% more done. Less tool management. More shipping."</div>
+    </div>    <div class="script-card">
+      <div class="hdr">
+        <div class="num" style="background:#7c3aed">7</div>
+        <div class="ttl">Trusted by Millions</div>
+        <div class="tm">0:50 – 0:56</div>
+      </div>
+      <div class="body">
+        <div class="vis"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20400%22%20width%3D%22800%22%20height%3D%22400%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg7%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231e1b4b%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230f0f23%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22url%28%23bg7%29%22%20rx%3D%224%22/%3E%0A%20%20%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22%237c3aed%22%20opacity%3D%22.9%22/%3E%0A%20%20%3Ctext%20x%3D%2270%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22700%22%3ESCENE%207%3C/text%3E%0A%20%20%3Crect%20x%3D%22680%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22rgba%280%2C0%2C0%2C0.4%29%22/%3E%0A%20%20%3Ctext%20x%3D%22730%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2211%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3E%E2%8F%B1%200%3A50%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%2290%22%20fill%3D%22%23fff%22%20font-size%3D%2226%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22800%22%20letter-spacing%3D%22-0.5%22%3ETrusted%20by%20Millions%3C/text%3E%0A%20%20%3Ccircle%20cx%3D%22400%22%20cy%3D%22180%22%20r%3D%2255%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.06%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22192%22%20font-size%3D%2244%22%20text-anchor%3D%22middle%22%3E%F0%9F%8F%86%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22280%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3ELogos%3A%20Google%2C%20Netflix%2C%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22302%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3EIBM%2C%20Airbnb.%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22324%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3ETeam%20celebrating.%3C/text%3E%5Cn%0A%20%20%3Crect%20x%3D%22120%22%20y%3D%22350%22%20width%3D%22560%22%20height%3D%2236%22%20rx%3D%228%22%20fill%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22373%22%20fill%3D%22%23fbbf24%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22600%22%3E4M%2B%20teams%20%E2%80%94%20Google%2C%20Netflix%2C%20IBM%20trust%20ClickUp.%3C/text%3E%0A%3C/svg%3E" alt="Scene 7"></div>
+        <div class="vo"><div class="lbl">🎙 Voiceover</div><p>"More than four million teams — Google, Netflix, IBM — trust ClickUp to run their work. Join them. Replace the chaos with one platform. Replace friction with focus."</p></div>
+      </div>
+      <div class="ontop">📺 <strong>On-screen:</strong> "4M+ teams trust ClickUp — Google, Netflix, IBM, Airbnb."</div>
+    </div>    <div class="script-card">
+      <div class="hdr">
+        <div class="num" style="background:#ffffff">8</div>
+        <div class="ttl">Start Free</div>
+        <div class="tm">0:56 – 1:00</div>
+      </div>
+      <div class="body">
+        <div class="vis"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20400%22%20width%3D%22800%22%20height%3D%22400%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg8%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%237c3aed%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234f46e5%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22url%28%23bg8%29%22%20rx%3D%224%22/%3E%0A%20%20%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22%23ffffff%22%20opacity%3D%22.9%22/%3E%0A%20%20%3Ctext%20x%3D%2270%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22700%22%3ESCENE%208%3C/text%3E%0A%20%20%3Crect%20x%3D%22680%22%20y%3D%2220%22%20width%3D%22100%22%20height%3D%2228%22%20rx%3D%2214%22%20fill%3D%22rgba%280%2C0%2C0%2C0.4%29%22/%3E%0A%20%20%3Ctext%20x%3D%22730%22%20y%3D%2239%22%20fill%3D%22%23fff%22%20font-size%3D%2211%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3E%E2%8F%B1%200%3A56%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%2290%22%20fill%3D%22%23fff%22%20font-size%3D%2226%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22800%22%20letter-spacing%3D%22-0.5%22%3EStart%20Free%3C/text%3E%0A%20%20%3Ccircle%20cx%3D%22400%22%20cy%3D%22180%22%20r%3D%2255%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.06%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22192%22%20font-size%3D%2244%22%20text-anchor%3D%22middle%22%3E%F0%9F%9A%80%3C/text%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22280%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3EClickUp%20homepage.%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22302%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3ECTA%20button.%3C/text%3E%5Cn%3Ctext%20x%3D%22400%22%20y%3D%22324%22%20fill%3D%22%23cbd5e1%22%20font-size%3D%2214%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%3EFade%20to%20logo.%3C/text%3E%5Cn%0A%20%20%3Crect%20x%3D%22120%22%20y%3D%22350%22%20width%3D%22560%22%20height%3D%2236%22%20rx%3D%228%22%20fill%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22373%22%20fill%3D%22%23fbbf24%22%20font-size%3D%2212%22%20font-family%3D%22system-ui%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22600%22%3EFree.%20No%20credit%20card.%20Start%20shipping.%3C/text%3E%0A%3C/svg%3E" alt="Scene 8"></div>
+        <div class="vo"><div class="lbl">🎙 Voiceover</div><p>"ClickUp — software to replace all software. Start free. No credit card. No limits. Your team's best work starts now."</p></div>
+      </div>
+      <div class="ontop">📺 <strong>On-screen:</strong> "Free forever. No credit card. No limits. Start shipping."</div>
+    </div>  </div>
+</body>
+</html>
