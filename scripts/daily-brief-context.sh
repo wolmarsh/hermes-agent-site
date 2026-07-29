@@ -24,6 +24,12 @@ except: pass
 " 2>/dev/null || echo "(HN API unavailable)"
 
 echo ""
+echo "--- Dev.to Cross-Posting Available ---"
+echo "To cross-post the latest article: python3 scripts/crosspost.py"
+echo "List articles: python3 scripts/crosspost.py --list"
+echo "Post specific: python3 scripts/crosspost.py --post <index>"
+echo ""
+
 echo "--- Today's Date Info ---"
 date -u '+%A, %B %d, %Y'
 echo "Timezone: $(cat /etc/timezone 2>/dev/null || echo 'UTC')"
