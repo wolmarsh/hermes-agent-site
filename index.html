@@ -1108,7 +1108,7 @@
       card.style.transitionDelay = `${(i % 4) * 0.08}s`;
       card.setAttribute('data-index', i);
       card.innerHTML = `
-        ${post.image ? `<div class="blog-card-img"><img src="${post.image}" alt="${post.title}" loading="lazy"></div>` : ''}
+        ${post.image ? `<div class="blog-card-img"><img src="${post.image}" alt="${post.title}" ></div>` : ''}
         <div class="blog-card-top">
           <span class="blog-date">📅 ${post.date}</span>
           <span class="blog-category ${post.catClass}">${post.category}</span>
