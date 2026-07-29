@@ -1874,13 +1874,13 @@
     
     // ===== INIT =====
     // Add RSS link to footer
-    const footer = document.querySelector('footer .footer-links');
-    if (footer) {
+    const rssTarget = document.querySelector('.footer-socials') || document.querySelector('footer .footer-inner');
+    if (rssTarget) {
       const rss = document.createElement('a');
       rss.className = 'rss-link';
       rss.textContent = '📡 RSS';
       rss.title = 'Subscribe to RSS feed';
-      footer.appendChild(rss);
+      rssTarget.appendChild(rss);
     }
     generateRSS();
 
