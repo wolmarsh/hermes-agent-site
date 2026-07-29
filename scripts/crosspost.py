@@ -148,6 +148,9 @@ def html_to_markdown(html):
     text = re.sub(r'</?div[^>]*>', '', text)
     text = re.sub(r'</?br\s*/?>', '\n', text)
     
+    # Strip leading whitespace from every line (template literal indentation)
+    text = '\n'.join(line.lstrip() for line in text.split('\n'))
+    
     # Clean excessive whitespace
     text = re.sub(r'\n{3,}', '\n\n', text)
     text = text.strip()
