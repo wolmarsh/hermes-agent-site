@@ -795,6 +795,96 @@
     // ===== BLOG POSTS DATA =====
     const posts = [
       {
+        date: 'Jul 30, 2026',
+        category: 'Dev',
+        catClass: 'cat-dev',
+        title: 'Hermes Agent — The Complete Setup Guide',
+        excerpt: 'A comprehensive walkthrough of setting up Hermes Agent from scratch: installation, configuration, skills, tools, cron jobs, and everything you need to get the most out of your autonomous AI assistant.',
+        content: `<p>Hermes Agent is an autonomous AI assistant built by <a href="https://nousresearch.com" style="color:var(--primary-light);" target="_blank">Nous Research</a>. Unlike chat-only AIs, Hermes can execute code, browse the web, manage files, schedule recurring tasks, and deploy projects — all through natural language.</p>
+
+        <p>Here's a complete guide to getting set up and productive.</p>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">1. Installation</h3>
+        <p>Hermes runs anywhere — Linux, macOS, or via Docker. The recommended approach:</p>
+        <pre style="background:var(--bg-elevated);padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.6;"><span style="color:var(--text-dim);"># Quick install (Linux/macOS)</span>
+        curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+
+        <span style="color:var(--text-dim);"># Or via pip</span>
+        pip install hermes-agent
+
+        <span style="color:var(--text-dim);"># Verify</span>
+        hermes --version</pre>
+        <p>The installer sets up the core binary, default profile, and starter skills. After installation, run <code style="background:var(--bg-elevated);padding:2px 6px;border-radius:4px;">hermes init</code> to create your first profile.</p>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">2. Profiles</h3>
+        <p>Hermes uses profiles for environment isolation. Each profile has its own skills, plugins, cron jobs, and memories:</p>
+        <pre style="background:var(--bg-elevated);padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.6;"><span style="color:var(--text-dim);"># List profiles</span>
+        hermes profile list
+
+        <span style="color:var(--text-dim);"># Create a new profile</span>
+        hermes profile create work
+
+        <span style="color:var(--text-dim);"># Switch profiles</span>
+        hermes profile switch work</pre>
+        <p>Profiles live at <code style="background:var(--bg-elevated);padding:2px 6px;border-radius:4px;">~/.hermes/profiles/&lt;name&gt;/</code>. Use separate profiles for work, personal projects, or different product builds.</p>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">3. Skills</h3>
+        <p>Skills are Hermes' procedural memory — reusable workflows for recurring tasks. They live in <code style="background:var(--bg-elevated);padding:2px 6px;border-radius:4px;">~/.hermes/skills/</code>:</p>
+        <pre style="background:var(--bg-elevated);padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.6;"><span style="color:var(--text-dim);"># List installed skills</span>
+        hermes skill list
+
+        <span style="color:var(--text-dim);"># Load a skill in conversation</span>
+        skill_view(name='skill-name')
+
+        <span style="color:var(--text-dim);"># Create a new skill</span>
+        skill_manage(action='create', name='my-skill', content='...')</pre>
+        <p>Skills can include reference files, templates, and scripts. They're how you teach Hermes your workflows — from deployment pipelines to design systems to SEO audits.</p>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">4. Tools</h3>
+        <p>Hermes has a rich tool ecosystem that gives it agency over your system:</p>
+        <ul>
+          <li><strong>Terminal</strong> — execute shell commands, run builds, manage processes</li>
+          <li><strong>File System</strong> — <code>read_file</code>, <code>write_file</code>, <code>patch</code>, <code>search_files</code> for full file management</li>
+          <li><strong>Web</strong> — browse pages, extract content, search the web</li>
+          <li><strong>Browser</strong> — full headless browser for interactive sites, screenshots, and JavaScript-rendered pages</li>
+          <li><strong>Git</strong> — commit, push, create repos, manage PRs (via <code>gh</code>)</li>
+          <li><strong>Code Execution</strong> — run Python scripts with access to all Hermes tools</li>
+          <li><strong>Memory</strong> — persistent recall of user preferences, environment facts, and learned conventions</li>
+          <li><strong>Cron</strong> — schedule recurring tasks that run autonomously</li>
+        </ul>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">5. Cron Jobs</h3>
+        <p>One of Hermes' most powerful features — scheduled autonomous agents:</p>
+        <pre style="background:var(--bg-elevated);padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.6;"><span style="color:var(--text-dim);"># Daily at 9 AM</span>
+        cronjob(action='create', schedule='0 9 * * *', prompt='...')
+
+        <span style="color:var(--text-dim);"># Every 30 minutes</span>
+        cronjob(action='create', schedule='30m', prompt='...')
+
+        <span style="color:var(--text-dim);"># One-shot at a specific time</span>
+        cronjob(action='create', schedule='2026-08-01T12:00:00', prompt='...')</pre>
+        <p>Cron jobs run in a fresh session with no chat context — prompts must be self-contained. They can deliver results to Telegram, Discord, email, or save locally.</p>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">6. Plugins</h3>
+        <p>Plugins extend Hermes with new functionality — MCP servers, custom tools, platform integrations:</p>
+        <pre style="background:var(--bg-elevated);padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.6;"><span style="color:var(--text-dim);"># Install a plugin</span>
+        hermes plugin install https://github.com/user/repo
+
+        <span style="color:var(--text-dim);"># List plugins</span>
+        hermes plugin list</pre>
+
+        <h3 style="color:var(--primary-light);margin:24px 0 12px;">7. Pro Tips</h3>
+        <ul>
+          <li><strong>Use memory proactively</strong> — save preferences and corrections with <code>memory(action='add')</code> so Hermes remembers between sessions</li>
+          <li><strong>Skills over prompts</strong> — if you find yourself repeating instructions, save them as a skill</li>
+          <li><strong>Batch cron jobs</strong> — chain them with <code>context_from</code> for data-collection → processing pipelines</li>
+          <li><strong>Workdir matters</strong> — set <code>workdir</code> on cron jobs so they operate inside your project repo with full git context</li>
+          <li><strong>UI/UX Pro Max</strong> — if building products, load the UI/UX Pro Max skill and run its search for design systems</li>
+          <li><strong>Fine-grained PATs</strong> — when setting up GitHub auth, use fine-grained tokens with Contents RW, PRs RW, Issues RW, Workflows RW</li>
+        </ul>
+        <p style="font-size:13px;color:var(--text-dim);margin-top:20px;padding-top:12px;border-top:1px solid var(--border);">🔗 <em>This site was itself built entirely by Hermes Agent.</em></p>`
+      },
+      {
         date: 'Jul 29, 2026',
         category: 'AI',
         catClass: 'cat-ai',
