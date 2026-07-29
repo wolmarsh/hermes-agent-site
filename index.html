@@ -547,6 +547,10 @@
       .blog-card { padding: 20px 24px; }
       .blog-card-img { width: calc(100% + 48px); margin: -20px -24px 16px -24px; }
       .blog-card-top { flex-wrap: wrap; }
+      .filter-bar { overflow-x: auto; flex-wrap: nowrap; }
+      .back-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; font-size: 18px; }
+      .modal-nav { flex-direction: column; }
+      .modal-nav-btn .nav-title { max-width: 120px; }
     }
 
     /* ===== VISUAL DIVIDER ===== */
@@ -555,6 +559,83 @@
       background: linear-gradient(90deg, transparent, rgba(124,58,237,0.15), transparent);
       margin: 0 auto;
     }
+  
+    /* ===== CATEGORY FILTER TABS ===== */
+    .filter-bar {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 32px; padding: 4px;
+      background: rgba(255,255,255,0.03);
+      border-radius: var(--radius); border: 1px solid var(--border);
+    }
+    .filter-btn {
+      padding: 8px 20px; border-radius: 100px; border: none;
+      font-family: var(--font-body); font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: all 0.2s;
+      background: transparent; color: var(--text-muted);
+    }
+    .filter-btn:hover { color: #fff; background: rgba(255,255,255,0.05); }
+    .filter-btn.active {
+      background: var(--primary); color: #fff;
+      box-shadow: 0 2px 12px var(--primary-glow);
+    }
+    .filter-btn.count-all::after { content: attr(data-count); margin-left: 4px; opacity: 0.5; font-weight: 400; }
+    
+    /* ===== READING TIME ===== */
+    .reading-time {
+      font-size: 12px; color: var(--text-dim);
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    
+    /* ===== BACK TO TOP ===== */
+    .back-to-top {
+      position: fixed; bottom: 32px; right: 32px; z-index: 99;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--primary); color: #fff; border: none;
+      cursor: pointer; font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px var(--primary-glow);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0; transform: translateY(20px) scale(0.8);
+      pointer-events: none;
+    }
+    .back-to-top.visible {
+      opacity: 1; transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      background: #6D28D9;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px var(--primary-glow);
+    }
+    
+    /* ===== MODAL NAV ===== */
+    .modal-nav {
+      display: flex; justify-content: space-between; gap: 12px;
+      margin-top: 32px; padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .modal-nav-btn {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 100px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      color: var(--text-muted); cursor: pointer;
+      font-family: var(--font-body); font-size: 13px; font-weight: 500;
+      transition: all 0.2s; flex: 1;
+    }
+    .modal-nav-btn:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: var(--border-hover); }
+    .modal-nav-btn:disabled { opacity: 0.2; cursor: not-allowed; }
+    .modal-nav-btn.next { justify-content: flex-end; }
+    .modal-nav-btn .nav-label { font-size: 11px; color: var(--text-dim); display: block; }
+    .modal-nav-btn .nav-title { font-size: 13px; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
+    
+    /* ===== MOBILE TOGGLE ANIMATION ===== */
+    .mobile-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+    .mobile-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    
+    /* ===== BLOG CARD FOOTER WITH READING TIME ===== */
+    .blog-card-footer { display: flex; align-items: center; justify-content: space-between; }
+
   </style>
 </head>
 <body>
@@ -633,6 +714,14 @@
         </p>
       </div>
       <div class="blog-grid" id="blogGrid">
+    <!-- Category filter -->
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ai">AI</button>
+      <button class="filter-btn" data-filter="dev">DEV</button>
+      <button class="filter-btn" data-filter="tech">Tech</button>
+    </div>
+
         <!-- Posts injected by JS -->
       </div>
     </div>
@@ -740,6 +829,16 @@
         <div class="modal-category" id="modalCategory"></div>
         <h2 id="modalTitle"></h2>
         <div class="modal-body" id="modalBody"></div>
+        <div class="modal-nav">
+          <button class="modal-nav-btn prev" id="modalPrev" onclick="modalPrev()" disabled>
+            <span>←</span>
+            <span><span class="nav-label">Previous</span><span class="nav-title"></span></span>
+          </button>
+          <button class="modal-nav-btn next" id="modalNext" onclick="modalNext()">
+            <span><span class="nav-label">Next</span><span class="nav-title"></span></span>
+            <span>→</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1100,13 +1199,24 @@
       }
     ];
 
+    // ===== HELPER: READING TIME =====
+    function readingTime(content) {
+      const words = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
+      const min = Math.max(1, Math.round(words / 200));
+      return `${min} min read`;
+    }
+
     // ===== RENDER BLOG POSTS =====
     const grid = document.getElementById('blogGrid');
+    const categories = new Set();
     posts.forEach((post, i) => {
       const card = document.createElement('article');
       card.className = 'blog-card fade-in';
       card.style.transitionDelay = `${(i % 4) * 0.08}s`;
       card.setAttribute('data-index', i);
+      card.dataset.category = post.catClass.replace('cat-', '');
+      categories.add(post.catClass.replace('cat-', ''));
+      const rt = readingTime(post.content);
       card.innerHTML = `
         ${post.image ? `<div class="blog-card-img"><img src="${post.image}" alt="${post.title}" ></div>` : ''}
         <div class="blog-card-top">
@@ -1117,11 +1227,41 @@
         <p>${post.excerpt}</p>
         <div class="blog-card-footer">
           <span class="blog-read-more">Read more →</span>
+          <span class="reading-time">📖 ${rt}</span>
         </div>
       `;
       // Click handler to open modal
       card.addEventListener('click', () => openPost(i));
       grid.appendChild(card);
+    });
+    
+    // ===== CATEGORY FILTER =====
+    const filterBar = document.getElementById('filterBar');
+    // Update counts on filter buttons
+    Array.from(categories).forEach(cat => {
+      const existing = filterBar.querySelector(`[data-filter="${cat}"]`);
+      if (existing) {
+        existing.setAttribute('data-count', `(${posts.filter(p => p.catClass === 'cat-' + cat).length})`);
+        existing.classList.add('count-all');
+      }
+    });
+    // All button count
+    const allBtn = filterBar.querySelector('[data-filter="all"]');
+    if (allBtn) allBtn.setAttribute('data-count', `(${posts.length})`);
+    filterBar.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      const cards = grid.querySelectorAll('.blog-card');
+      cards.forEach((card, i) => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.style.display = match ? '' : 'none';
+        if (match) {
+          card.style.transitionDelay = `${(i % 4) * 0.04}s`;
+        }
+      });
     });
 
     // ===== MODAL =====
@@ -1132,7 +1272,10 @@
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
 
+    let currentPostIndex = 0;
+
     function openPost(index) {
+      currentPostIndex = index;
       const post = posts[index];
       // Set modal image
       const modalImg = document.getElementById('modalImg');
@@ -1147,10 +1290,39 @@
       modalCategory.className = 'modal-category ' + post.catClass;
       modalTitle.textContent = post.title;
       modalBody.innerHTML = post.content;
+      
+      // Update nav buttons
+      const prevBtn = document.getElementById('modalPrev');
+      const nextBtn = document.getElementById('modalNext');
+      if (prevBtn) {
+        prevBtn.disabled = index <= 0;
+        if (index > 0) {
+          prevBtn.querySelector('.nav-title').textContent = posts[index - 1].title;
+        } else {
+          prevBtn.querySelector('.nav-title').textContent = '';
+        }
+      }
+      if (nextBtn) {
+        nextBtn.disabled = index >= posts.length - 1;
+        if (index < posts.length - 1) {
+          nextBtn.querySelector('.nav-title').textContent = posts[index + 1].title;
+        } else {
+          nextBtn.querySelector('.nav-title').textContent = '';
+        }
+      }
+      
       modal.classList.add('open');
       document.body.style.overflow = 'hidden';
       // Reset scroll
       modal.querySelector('.modal').scrollTop = 0;
+    }
+    
+    // Modal nav handlers
+    function modalPrev() {
+      if (currentPostIndex > 0) openPost(currentPostIndex - 1);
+    }
+    function modalNext() {
+      if (currentPostIndex < posts.length - 1) openPost(currentPostIndex + 1);
     }
 
     function closeModal() {
@@ -1176,16 +1348,34 @@
 
     // ===== NAVBAR SCROLL =====
     const nav = document.getElementById('navbar');
+    const backBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 50);
+      if (backBtn) backBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+    // Back to top
+    if (backBtn) backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    
+    // ===== KEYBOARD SHORTCUTS IN MODAL =====
+    const modalEl = document.getElementById('postModal');
+    document.addEventListener('keydown', (e) => {
+      if (!modalEl.classList.contains('open')) return;
+      if (e.key === 'ArrowLeft' && currentPostIndex > 0) { modalPrev(); e.preventDefault(); }
+      if (e.key === 'ArrowRight' && currentPostIndex < posts.length - 1) { modalNext(); e.preventDefault(); }
     });
 
     // ===== MOBILE MENU =====
     const toggle = document.getElementById('mobileToggle');
     const navLinks = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      toggle.classList.toggle('open');
+    });
     navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        toggle.classList.remove('open');
+      });
     });
 
     // ===== SMOOTH SCROLL =====
