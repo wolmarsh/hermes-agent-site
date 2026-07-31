@@ -199,7 +199,7 @@ def post_to_devto(post, published=False):
         result = json.loads(resp.read())
         slug = result.get("url", "unknown")
         print(f"✅ Posted: \"{post['title']}\"")
-        print(f"   URL: https://dev.to/{slug}")
+        print(f"   URL: {slug}")  # dev.to returns the full URL — do NOT prefix
         print(f"   ID: {result.get('id', 'unknown')}")
         if not published:
             print("   (draft — publish from dev.to dashboard)")
