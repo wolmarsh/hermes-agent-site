@@ -109,7 +109,7 @@ def extract_posts():
         for key in ["date", "category", "catClass", "title", "excerpt"]:
             if f"{key}:" in stripped:
                 # Extract value between quotes
-                m = re.search(rf"{key}:\s*'([^']*)'", stripped)
+                m = re.search(rf"{key}:\s*'((?:\\.|[^'\\])*)'", stripped)
                 if m:
                     val = m.group(1).replace("\\'", "'")
                     current[key] = val
