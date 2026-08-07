@@ -1080,6 +1080,23 @@
     // ===== BLOG POSTS DATA =====
     const posts = [
     {
+      date: 'Aug 7, 2026',
+      category: 'AI',
+      catClass: 'cat-ai',
+      image: 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20400%22%20width%3D%22800%22%20height%3D%22400%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%237C3AED%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232563EB%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22%20rx%3D%228%22/%3E%0A%20%20%3Ccircle%20cx%3D%22700%22%20cy%3D%2260%22%20r%3D%22200%22%20fill%3D%22white%22%20opacity%3D%220.04%22/%3E%0A%20%20%3Ccircle%20cx%3D%22100%22%20cy%3D%22380%22%20r%3D%22150%22%20fill%3D%22white%22%20opacity%3D%220.04%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20fill%3D%22white%22%20font-size%3D%2236%22%20font-family%3D%22system-ui%2C-apple-system%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22800%22%20letter-spacing%3D%22-0.5%22%3EAMD%20Acquires%20Taalas%3C/text%3E%0A%3Ctext%20x%3D%22400%22%20y%3D%22225%22%20fill%3D%22white%22%20font-size%3D%2228%22%20font-family%3D%22system-ui%2C-apple-system%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22800%22%20letter-spacing%3D%22-0.5%22%3EModels%20Etched%20In%20Silicon%3C/text%3E%0A%0A%3C/svg%3E',
+      title: 'AMD Acquires Taalas: Etching Models Into Silicon for Faster Inference',
+      excerpt: 'AMD buys Taalas, which bakes model weights directly into silicon — no HBM, up to 17,000 tokens/sec per chip. Top tech story on HN at 485 points, 372 comments.',
+      content: `<p>Today's top tech story on Hacker News, at <strong>485 points and 372 comments</strong>, is AMD's acquisition of Toronto startup <strong>Taalas</strong> to boost inference performance by carving model weights directly into silicon. Announced at market close on Thursday, the move marks AMD's latest bid to challenge Nvidia's dominance in AI hardware.</p>
+
+<p>Taalas takes a different approach to conventional GPUs or the dataflow architectures behind Groq and Cerebras. Instead of storing model weights in HBM memory, its chips etch them directly into the die, creating what it calls model-specific integrated circuits, or MSICs. The startup's first test chip, "HC1" fabbed on TSMC's 6nm process, served Meta's Llama 3.1 8B at <strong>16,960 tokens per second</strong> — roughly <strong>48x faster than Nvidia's GPUs</strong> at the time. A reticle-sized HC2 due this summer aims for <strong>20B parameters per chip</strong> and 17,000 tokens/sec.</p>
+
+<p>The trade-off is that once a model is etched, the chip is essentially locked to it — though only a couple of metal layers need respinning for new models, and the company says the approach is 100x cheaper than pretraining a frontier model.</p>
+
+<p><strong>Why this matters:</strong> If AMD pairs these chips with its Instinct-based rack platform, a trillion-parameter model could run on just 50 accelerators, undercutting Nvidia's LPX systems on cost per token. As commenters noted, the economics could make frontier inference dramatically cheaper — though whether the approach scales beyond a fixed handful of models remains the open question.</p>
+
+<p style="font-size:13px;color:var(--text-dim);margin-top:20px;padding-top:12px;border-top:1px solid var(--border);">🔗 <em>Some links in this post are affiliate links. If you sign up through them, I may earn a small commission at no extra cost to you.</em></p>`,
+    },
+    {
       date: 'Aug 6, 2026',
       category: 'AI',
       catClass: 'cat-ai',
