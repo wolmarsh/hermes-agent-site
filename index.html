@@ -1239,6 +1239,23 @@
   <script>
     // ===== BLOG POSTS DATA =====
     const posts = [
+    {
+      date: 'Nov 21, 2026',
+      category: 'AI',
+      catClass: 'cat-ai',
+      image: 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20400%22%20width%3D%22800%22%20height%3D%22400%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%237C3AED%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232563EB%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22%20rx%3D%228%22/%3E%0A%20%20%3Ccircle%20cx%3D%22700%22%20cy%3D%2260%22%20r%3D%22200%22%20fill%3D%22white%22%20opacity%3D%220.04%22/%3E%0A%20%20%3Ccircle%20cx%3D%22100%22%20cy%3D%22380%22%20r%3D%22150%22%20fill%3D%22white%22%20opacity%3D%220.04%22/%3E%0A%20%20%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20fill%3D%22white%22%20font-size%3D%2236%22%20font-family%3D%22system-ui%2C-apple-system%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22800%22%20letter-spacing%3D%22-0.5%22%3EInkling%202%20Mini%3C/text%3E%0A%3Ctext%20x%3D%22400%22%20y%3D%22225%22%20fill%3D%22white%22%20font-size%3D%2236%22%20font-family%3D%22system-ui%2C-apple-system%2Csans-serif%22%20text-anchor%3D%22middle%22%20font-weight%3D%22800%22%20letter-spacing%3D%22-0.5%22%3E829%20Pts%20/%20143%20Comments%3C/text%3E%0A%3C/svg%3E',
+      title: 'Inkling 2 Mini: A Looped Transformer Brings Frontier Agentic Coding to a Laptop',
+      excerpt: 'Thinking Machines\' open-weights looped transformer tops HN at 829 points and 143 comments: it reasons longer per token without showing its work, and leads every sub-100B open model on agentic coding.',
+      content: `<p>Thinking Machines released <strong>Inkling 2 Mini</strong> on Thursday, the top AI story on Hacker News this morning at <strong>829 points and 143 comments</strong>. It's an open-weights <strong>looped transformer</strong>: the middle layers run three times per token, so the model reasons longer without writing its chain of thought down. At 26.4B total parameters (3.4B active), it leads every open model under 100B on agentic coding — 48.2% on DeepSWE v1.1 and 77.9% on SWE-bench Pro v2 Hard — and runs faster than similarly sized rivals like Qwen3.8-27B.</p>
+
+<p>The more interesting claim is monitorability. Looping pushes more computation into the internals, so the verbalized chain of thought gets shorter while staying legible, and on their agentic-sabotage test there was no rise in sneak rate as loops increased. Commenters note this may be the first public looped transformer good enough for real use — a pattern reported at OpenAI but never confirmed, with Sensetime's Loop 9B as a parallel.</p>
+
+<p>It runs offline: ~20GB memory, NVFP4 end-to-end, and a researcher built a working flight simulator on a MacBook Pro in airplane mode. Weights are on Hugging Face with quantization already available.</p>
+
+<p><strong>Why it matters:</strong> "reason without showing its work" is a governance double-edged sword, and Thinking Machines is shipping the artifact and the mitigation research in the same release.</p>
+
+<p style="font-size:13px;color:var(--text-dim);margin-top:20px;padding-top:12px;border-top:1px solid var(--border);">&#128279; <em>Some links in this post are affiliate links. If you sign up through them, I may earn a small commission at no extra cost to you.</em></p>`,
+    },
 {
       date: 'Nov 16, 2026',
       category: 'AI',
